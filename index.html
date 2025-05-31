@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fancy Categories</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #ff4e50, #f9d423);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      animation: gradientBG 15s ease infinite;
+      background-size: 300% 300%;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .fancy-button {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      padding: 1rem;
+      border-radius: 1.5rem;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .fancy-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+  <div class="max-w-5xl w-full bg-white/30 backdrop-blur-md p-6 rounded-3xl shadow-2xl">
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-center text-white mb-8 drop-shadow-lg">🌈 Choose a Category</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- Category Buttons -->
+    </div>
+  </div>
+
+  <script>
+    const categories = [
+      { name: 'ChatGPT', url: 'https://chatgpt.com/' },
+      { name: 'DeepSeek', url: 'https://chat.deepseek.com/' },
+      { name: 'FreeBitcoin', url: 'https://freebitco.in/?op=home' },
+      { name: 'AWMI-Bible', url: 'https://bibleplan.awmi.net/instructions' },
+      { name: 'AWMI-NT', url: 'https://awme.net/online-bible-commentary/acts/17/18' },
+      { name: 'AWMI-DailyDevotional', url: 'https://awme.net/daily-devotional' },
+      { name: 'Poe', url: 'https://poe.com/' },
+      { name: 'Gemini', url: 'https://gemini.google.com/app' },
+      { name: 'Perplexity', url: 'https://www.perplexity.ai/' },
+      { name: 'Bing', url: 'https://copilot.microsoft.com/chats/BhXRVc6XCuHWRB8s6XXmW' },
+      { name: 'IMDb', url: 'https://www.imdb.com/' },
+      { name: 'CNN', url: 'https://edition.cnn.com/' },
+      { name: 'BBC', url: 'https://www.bbc.com/' },
+      { name: 'Facebook', url: 'https://www.facebook.com/' },
+      { name: 'r/crypto', url: 'https://www.reddit.com/r/CryptoCurrency/' }
+    ];
+
+    const grid = document.querySelector(".grid");
+
+    categories.forEach(cat => {
+      const button = document.createElement("button");
+      button.className = "fancy-button";
+      button.textContent = cat.name;
+      button.onclick = () => window.open(cat.url, "_blank");
+      grid.appendChild(button);
+    });
+  </script>
+</body>
+</html>
